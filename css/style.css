@@ -1,0 +1,60 @@
+/*light reset*/
+html,body{height: 100%;width:100%}
+html, body, ul, ol, li, form,fieldset, legend,dl,dt,dd{ margin: 0; padding: 0}
+h1, h2, h3, h4, h5, h6{ margin: 0;color: #fff;font-family: 'Bungee Inline', cursive;font-weight: normal}
+fieldset, img{ border: 0}
+table{ border-collapse: collapse; border-spacing: 0}
+caption, th, td{ text-align: left; vertical-align: top; font-weight: normal}
+legend{ color: #fff}
+input, textarea, select{ font-size: 110%; line-height: 1.1;font-family:'notokr-regular', sans-serif}
+li{ list-style: none}
+abbr, acronym{ border-bottom: .1em dotted; cursor: help}
+sup{ vertical-align: text-top}sub{ vertical-align: text-bottom}
+input,textarea,button{border:0;padding: 0;cursor: pointer}
+a{text-decoration: none;color: #fff}
+strong{font-family:'notokr-medium', sans-serif}
+body { box-sizing: border-box; font-family: 'notokr-light';}
+b {font-weight: bold}
+h2{font-size: 30px}
+h4{font-size: 14px;padding-top: 5px}
+
+body{
+  background: url(../data/imgs_web/bg.png) no-repeat 0 0;
+  background-size: 100% 100%;
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: #fff;
+}
+#section0 h1 img {position: absolute;top: 50%;left:50%;transform:translate(-50%,-50%);}
+#section0 h1 img.titHelper {z-index: 99;animation-name:titOpacity;animation-duration: 1s;animation-iteration-count: infinite;}
+@keyframes titOpacity {
+    0%   {opacity: 0}
+    30%  {opacity: 1}
+    100% {opacity: 0}
+}
+#section0 .scroll {font-size: 50px;position: absolute;left:50%;transform: translateX(-50%);animation-name: scroll;animation-duration: 1s;animation-iteration-count: infinite;text-shadow: 0 0 10px #002b69}
+@keyframes scroll {
+  0% {bottom:13%;opacity: 0}
+  100% {bottom:10%;opacity: 1}
+}
+#section1 {background: rgba(0,0,0,0.5)}
+#section2 {background: rgba(0,0,0,0.8)}
+#section3 {background: rgba(0,0,0,0.9);padding: 40px 0}
+#canvasIn {width:auto%;height: 80%;max-height: 760px;margin: 0 auto}
+#canvasIn canvas {width: auto !important;height: 100% !important}
+
+h2 {font-size: 50px;padding-bottom: 20px}
+#section1 #slide0 ul {width: 700px;margin: 0 auto;margin-top: 50px}
+#section1 #slide0 ul li {float: left;width: 30%}
+#section1 #slide0 ul li:nth-child(2){margin: 0 5%}
+#section1 #slide0 ul li img {width: 100%}
+#section1 #slide1 {position: relative;}
+#section1 .click1{position: absolute;top:10px;left:40px;font-size: 30px}
+#section1 .click2{position: absolute;top:70px;left:200px;font-size: 50px}
+#section1 .click3{position: absolute;top:150px;left:230px;font-size: 30px}
+#section1 #slide6 ul {margin: 0 auto;width: 80%;max-width: 1200px;}
+#section1 #slide6 ul li {float: left;width: 30%;}
+#section1 #slide6 ul li:nth-child(2){padding: 0 5%}
+#section1 #slide6 ul li img {width: 100%;padding-bottom: 20px}
+.clearfixafter:after{content:"";display:block;clear:both}

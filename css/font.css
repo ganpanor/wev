@@ -1,0 +1,73 @@
+@font-face {
+font-family: 'notokr-bold';
+src: url('../../font/NotoKR-Bold/notokr-bold.eot');
+src: url('../../font/NotoKR-Bold/notokr-bold.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-Bold/notokr-bold.woff2') format('woff2'),
+url('../../font/NotoKR-Bold/notokr-bold.woff') format('woff'),
+url('../../font/NotoKR-Bold/notokr-bold.ttf') format('truetype'),
+url('../../font/NotoKR-Bold/notokr-bold.svg#notokr-bold') format('svg');
+font-weight: 700;
+font-style: normal;
+}
+@font-face {
+font-family: 'notokr-medium';
+src: url('../../font/NotoKR-Medium/notokr-medium.eot');
+src: url('../../font/NotoKR-Medium/notokr-medium.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-Medium/notokr-medium.woff2') format('woff2'),
+url('../../font/NotoKR-Medium/notokr-medium.woff') format('woff'),
+url('../../font/NotoKR-Medium/notokr-medium.ttf') format('truetype'),
+url('../../font/NotoKR-Medium/notokr-medium.svg#notokr-medium') format('svg');
+font-weight: 600;
+font-style: normal;
+}
+@font-face {
+font-family: 'notokr-regular';
+src: url('../../font/NotoKR-Regular/notokr-regular.eot');
+src: url('../../font/NotoKR-Regular/notokr-regular.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-Regular/notokr-regular.woff2') format('woff2'),
+url('../../font/NotoKR-Regular/notokr-regular.woff') format('woff'),
+url('../../font/NotoKR-Regular/notokr-regular.ttf') format('truetype'),
+url('../../font/NotoKR-Regular/notokr-regular.svg#notokr-regular') format('svg');
+font-weight: 500;
+font-style: normal;
+}
+@font-face {
+font-family: 'notokr-demilight';
+src: url('../../font/NotoKR-DemiLight/notokr-demilight.eot');
+src: url('../../font/NotoKR-DemiLight/notokr-demilight.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-DemiLight/notokr-demilight.woff2') format('woff2'),
+url('../../font/NotoKR-DemiLight/notokr-demilight.woff') format('woff'),
+url('../../font/NotoKR-DemiLight/notokr-demilight.ttf') format('truetype'),
+url('../../font/NotoKR-DemiLight/notokr-demilight.svg#notokr-demilight') format('svg');
+font-weight: 400;
+font-style: normal;
+}
+@font-face {
+font-family: 'notokr-light';
+src: url('../../font/NotoKR-Light/notokr-light.eot');
+src: url('../../font/NotoKR-Light/notokr-light.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-Light/notokr-light.woff2') format('woff2'),
+url('../../font/NotoKR-Light/notokr-light.woff') format('woff'),
+url('../../font/NotoKR-Light/notokr-light.ttf') format('truetype'),
+url('../../font/NotoKR-Light/notokr-light.svg#notokr-light') format('svg');
+font-weight: 300;
+font-style: normal;
+}
+@font-face {
+font-family: 'notokr-thin';
+src: url('../../font/NotoKR-Thin/notokr-thin.eot');
+src: url('../../font/NotoKR-Thin/notokr-thin.eot?#iefix') format('embedded-opentype'),
+url('../../font/NotoKR-Thin/notokr-thin.woff2') format('woff2'),
+url('../../font/NotoKR-Thin/notokr-thin.woff') format('woff'),
+url('../../font/NotoKR-Thin/notokr-thin.ttf') format('truetype'),
+url('../../font/NotoKR-Thin/notokr-thin.svg#notokr-thin') format('svg');
+font-weight: 100;
+font-style: normal;
+}
+@font-face {
+  font-family: 'chosun_ilbo_myungjo';
+  src: url('../../font/chosun_ilbo_myungjo/chosun_ilbo_myungjo.woff2') format('woff2'),
+       url('../../font/chosun_ilbo_myungjo/chosun_ilbo_myungjo.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
