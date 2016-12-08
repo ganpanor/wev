@@ -51,7 +51,7 @@ function preload(){
   newBack = loadImage("data/newBack.png");
 
   //load images
-  for(var i=0;i<=17;i++){
+  for(var i=0;i<=3;i++){
     img[i] = loadImage("data/imgs/img"+i+".png");
   }
 
