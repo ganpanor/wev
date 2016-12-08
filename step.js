@@ -110,13 +110,13 @@ function Get_st3(){
   }
   this.attack = function(){
     // inner Atk
-    image(img[8],this.x,this.y,this.r,this.r);
+    image(img[2],this.x,this.y,this.r,this.r);
     this.r = this.r + this.rSpd;
 
     //outer atk
     if(this.r>10){
       this.r2 = this.r2+this.r2Spd;
-      image(img[9],this.x,this.y,this.r2,this.r2);
+      image(img[3],this.x,this.y,this.r2,this.r2);
       }
       //filter(BLUR,0);
     //next atk
