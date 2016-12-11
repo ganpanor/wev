@@ -166,7 +166,7 @@ function Get_st3(){
         noFill();
       }
 
-      if(this.r>32&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+      if(this.r>40&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
         curHP-=4+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
@@ -187,7 +187,7 @@ function Get_st3(){
 function Get_st4(){
   this.screenshot=function(){
     var saveY=year();var saveMo=month();var saveD=day();var saveH=hour();var saveMi=minute();var saveS=second();
-    save("data/result/"+saveY+saveMo+saveD+"_"+saveH+saveMi+saveS+".jpg");
+    save("wev"+saveY+saveMo+saveD+"_"+saveH+saveMi+saveS+".jpg");
   }
   this.score=function(){
     scoreGo=milingame;
