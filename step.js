@@ -137,7 +137,7 @@ function Get_st3(){
   //outer Atk - static value
   this.r2=0;this.r2Spd=10;
   // Atk size
-  this.rRad=random(35,50);
+  this.rRad=random(41,55);
 
   //start function
   this.attack=function(){
@@ -165,8 +165,8 @@ function Get_st3(){
         fill(255);textSize(20);text("화면_안쪽으로_들어오십시오",width/2,height/2);
         noFill();
       }
-      if(this.r>=35){this.r=35}
-      if(this.r>=35&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+      if(this.r>=34){this.r=34}
+      if(this.r>=34&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
         curHP-=5+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
