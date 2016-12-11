@@ -135,7 +135,7 @@ function Get_st3(){
   this.r=0;rSpd=1;
   if(lvUp>=7){rSpd=rSpd;} // after lv7,static
   //outer Atk - static value
-  this.r2=0;this.r2Spd=15;
+  this.r2=0;this.r2Spd=10;
   // Atk size
   this.rRad=random(35,50);
 
