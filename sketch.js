@@ -148,7 +148,7 @@ function draw() {
       if(tCount===0){
       sound[6].play();
       tNext+=20;
-      lvUp+=1;rSpd+=0.2;if(rSpd>=1.7){rSpd=1.7}}
+      lvUp+=1;rSpd+=0.4;if(rSpd>=3.4){rSpd=3.4}}
 
       /*공격*/ ingame.attack();
       /*데미지*/ ingame.damage();
