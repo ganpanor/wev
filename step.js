@@ -113,7 +113,7 @@ function Get_st3(){
     tint(255,this.hpRed);
     image(img[5],width/2,height/2);
     noTint();
-    this.dmgRed-=15;if(this.dmgRed<=0){this.dmgRed=0;wcW=320;wcH=240;wcWs=320;wcHs=240;}
+    this.dmgRed-=20;if(this.dmgRed<=0){this.dmgRed=0;wcW=320;wcH=240;wcWs=320;wcHs=240;}
     fill(255,0,0,this.dmgRed);
     rectMode(CORNER);
     rect(0,0,width,height);
