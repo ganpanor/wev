@@ -166,7 +166,7 @@ function Get_st3(){
         noFill();
       }
 
-      if(this.r2>this.rRad*0.8&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+      if(this.r>32&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
         curHP-=4+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
