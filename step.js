@@ -165,9 +165,9 @@ function Get_st3(){
         fill(255);textSize(20);text("화면_안쪽으로_들어오십시오",width/2,height/2);
         noFill();
       }
-      if(this.r>=34){this.r=34}
-      if(this.r>=34&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
-        curHP-=3.5+(lvUp*0.5);
+      if(this.r>=36){this.r=36}
+      if(this.r>=36&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+        curHP-=5+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
     //ingame hp0
@@ -186,13 +186,13 @@ function Get_st3(){
 
 function Get_st4(){
   this.screenshot=function(){
+    scoreGo=milingame;
+    score=nf(scoreGo*0.037,1,0);
     text("점수:"+score,width/2,height*0.7);
     var saveY=year();var saveMo=month();var saveD=day();var saveH=hour();var saveMi=minute();var saveS=second();
     save("wev"+saveY+saveMo+saveD+"_"+saveH+saveMi+saveS+".jpg");
   }
   this.score=function(){
-    scoreGo=milingame;
-    score=nf(scoreGo*0.037,1,0);
     if(lvUp>=1 && lvUp<=2){this.grade="수고하셨습니다."} else
     if(lvUp==3){this.grade="오~운동좀_하셨나봐요?"}
     if(lvUp==4){this.grade="이정도만_해도_잘한겁니다~"} else
