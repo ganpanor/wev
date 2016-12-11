@@ -126,7 +126,7 @@ function Get_st3(){
     textSize(7);
     text("level",25,21);
     textSize(14);
-    text(rSpd,25,33);
+    text(lvUp,25,33);
   }
 
 
@@ -166,8 +166,8 @@ function Get_st3(){
         noFill();
       }
 
-      if(this.r>30&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
-        //curHP-=5+(lvUp*0.5);
+      if(this.r2>rRad*0.9&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+        curHP-=4+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
     //ingame hp0
