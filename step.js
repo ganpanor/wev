@@ -186,6 +186,7 @@ function Get_st3(){
 
 function Get_st4(){
   this.screenshot=function(){
+    text("점수:"+score,width/2,height*0.5);
     var saveY=year();var saveMo=month();var saveD=day();var saveH=hour();var saveMi=minute();var saveS=second();
     save("wev"+saveY+saveMo+saveD+"_"+saveH+saveMi+saveS+".jpg");
   }
