@@ -1,10 +1,20 @@
-var wc; //capture
+var wc;//capture
+var wcW=320;
+var wcH=240;
+var wcWs=320;
+var wcHs=240;
 var font;
 var wherep5;
 
-var img = [];
-var sound = [];
+var img=[];
+var sound=[];
 
+var resX;
+var resY;
+//btns
+var startBtn;
+var resetBtn;
+var activeBtn=false;
 // default timer
 var milDf;
 
@@ -13,207 +23,176 @@ var st0;
 var intro;
 
 // Step 1 - setting //
-var st1 = false;
+var st1=false;
 var sett;
 var milSet;
-var pgBar
+var goutX = 80;
+// var pgBar
 
-/*setTimer*/
-var sCount; var sTime = 4;
+/*setTimer*/var sCount;var sTime;
 
 // Step 2 - guide //
-var st2 = false;
+var st2=false;
 var guide;
 var milRed;
 var back;
 var newBack;
 
 // Step 3 - ingame //
-var st3 = false;
+var st3=false;
 var ingame;
 var milingame;
-/*lvTimer*/
-var time; var tCount; var tNext = 10;
-/*level*/
-var level=1; var lvUp = 1;
+/*lvTimer*/var time;var tCount;var tNext=10;var tRemain;
+/*level*/var level=1;var lvUp=1;
+/*Atk*/var randomX=0;var randomX2=0;var randomY=0;var rSpd;
+var curHP=100;
 
-var randomX = 0; var randomX2 = 0; var randomY = 0;
-
-// Step 4 = result //
-var st4 = false;
+// Step 4=result //
+var st4=false;
+var result;
 //var result;
-/*score*/ var score=0;var scoreGo = 0;
-var playing = false;
+/*score*/ var score=0;var scoreGo=0;
 function preload(){
-
-  font = loadFont('data/font/SDSwaggerTTF.ttf');
-  //load background
-  newBack = loadImage("data/newBack.png");
-
-  //load images
-  for(var i=0;i<=3;i++){
-    img[i] = loadImage("data/imgs/img"+i+".png");
-  }
-
-  //load sounds
-  for(var s=0;s<=12;s++){
-    sound[s] = loadSound("data/sounds/sound"+s+".mp3");
-  }
+  //fonts
+  font=loadFont('data/font/SDSwaggerTTF.ttf');
+  //background
+  newBack=loadImage("data/newBack.png");
+  //images
+  for(var i=0;i<=5;i++){img[i]=loadImage("data/imgs/img"+i+".png");}
+  //sounds
+  for(var s=0;s<=12;s++){sound[s]=loadSound("data/sounds/sound"+s+".mp3");}
 }
 
 function setup() {
-  colorMode(RGB, 255);
-  frameRate(20);
-  wherep5 = createCanvas(320,240);
+  colorMode(RGB,255);frameRate(20);
+  wherep5=createCanvas(320,240);
   wherep5.parent("#canvasIn");
-  var constraints = {
+  var constraints={
     video: {
-      mandatory: {
-        maxWidth: 320,
-        maxHeight: 240
-      },
-      optional: [
-        { maxFrameRate: 10 }
-      ]
-    },
-    audio: false
-  };
-  wc = createCapture(constraints);
-  wc.hide();
-  textFont(font);
-  textSize(24);
-  imageMode(CENTER);
-  intro = new Get_st0();
-  sett = new Get_st1();
-  guide = new Get_st2();
-  ingame = new Get_st3();
-  //result = new Get_st4();
-  st0 = true;
-  smooth();
-
+      mandatory: {maxWidth: 320,maxHeight: 240},
+      optional: [{ maxFrameRate: 10 }]
+    },audio: false };
+  wc=createCapture(constraints);wc.hide();
+  smooth();imageMode(CENTER);textAlign(CENTER);textSize(14);textFont(font);
+  intro=new Get_st0();
+  sett=new Get_st1();
+  guide=new Get_st2();
+  ingame=new Get_st3();
+  result=new Get_st4();
+  st0=true;
 }
 
 function draw() {
+  //for button
+  resX=map(mouseX,0,14/15*windowHeight,0,width);
+  resY=map(mouseY,0,0.7*windowHeight,0,height);
 
-  if(st0){
-    intro.place();
-  }
+  if(st0){intro.place();}
 
-  if(st0 === false){
-    wc.loadPixels(); //cam
+  //start game
+  if(st0===false){
+    wc.loadPixels();//cam
 
-  if(st2){
-    /*pixel difference value*/
-    var moving = 70;
-    println(wc.width);
-    newBack.loadPixels(); //background
+    ////// seperation //////
+    if(st2){
+      /*pixel difference value*/
+      var moving=70;
+      println(wc.width);
+      newBack.loadPixels();//background
+      for(var x=0;x < wc.width;x++){
+        for(var y=0;y < wc.height;y++) {
+          var i=(x + y * wc.width)*4;
+            //collect pixels
+            var frontR=wc.pixels[i];var frontG=wc.pixels[i+1];var frontB=wc.pixels[i+2];
+            var backR=back.pixels[i];var backG=back.pixels[i+1];var backB=back.pixels[i+2];
+            var newBackR=newBack.pixels[i];var newBackG=newBack.pixels[i+1];var newBackB=newBack.pixels[i+2];
+            var dR=abs(frontR-backR);var dG=abs(frontG-backG);var dB=abs(frontB-backB);
+            // seperate body
+            if(dR < moving&&dG < moving&&dB < moving){
+              wc.pixels[i]=newBackR;wc.pixels[i+1]=newBackG;wc.pixels[i+2]=newBackB;
+              } else  {
+              wc.pixels[i]=frontR;wc.pixels[i+1]=frontG;wc.pixels[i+2]=frontB;
+              randomX=width-1-x;randomY=y;}
+        } //var y
+      } //var x
+    } //end seperation
 
-    for(var x = 0; x < wc.width; x++){
-      for(var y = 0; y < wc.height; y++) {
-        var i = (x + y * wc.width)*4;
-        //var j = ((wc.width-1-x) + y * wc.width)*4; //좌우 반전 되기 때문에 거꾸로 불러와야함
+      wc.updatePixels();
+      scale(-1,1);
+      image(wc,-wcW/2,wcH/2,wcWs,wcHs);
+      scale(-1,1);
 
-          var frontR = wc.pixels[i];var frontG = wc.pixels[i+1];var frontB = wc.pixels[i+2];
-          var backR = back.pixels[i];var backG = back.pixels[i+1];var backB = back.pixels[i+2];
-          var newBackR = newBack.pixels[i];var newBackG = newBack.pixels[i+1];var newBackB = newBack.pixels[i+2];
-          var dR = abs(frontR-backR);var dG = abs(frontG-backG);var dB = abs(frontB-backB);
-
-          // 몸 배경 영역 분리
-          if(dR < moving && dG < moving && dB < moving){
-            wc.pixels[i] = newBackR;wc.pixels[i+1] = newBackG;wc.pixels[i+2] = newBackB;
-            } else  {
-            wc.pixels[i] = frontR;wc.pixels[i+1] = frontG;wc.pixels[i+2] = frontB;
-            randomX = width-1-x;randomY = y;}
-      } //var y
-    } //var x
-  }// end guide
-
-  if(playing === true){ //if st4==true -> Don't have to call cam
-    wc.updatePixels();
-    scale(-1,1);
-    image(wc,-width/2,height/2);
-    scale(-1,1);
-  }
-
-  // STEP 1 - sett(capture) //
-  if(st1){
-    sett.place();
-    milSet = millis()-milDf; //timer reset
-    sCount = sTime-(milSet/1000);
-    pgBar = map(int(sCount),12,4,0,100);
-  }
-
-  // STEP 2 - guide //
-  if(st2 && st3 === false){
-    guide.place();
-    milRed = millis();
-
-    // guideline in //
-    if(randomX>100 && randomX <110){
-      st3 = true;
-      sound[1].stop();
-      sound[2].play();
-    }
-  }
-
-  // STEP 3 - ingame //
-  if(st3){
-    //timer
-    fill(255);
-    milingame = millis()-milRed; // timer reset
-    tCount = tNext-int(milingame/1000);
-    time = nf(tCount , 2);
-    level = nf(lvUp,1);
-
-    // 레벨업
-    if(tCount === 0){
-    sound[6].play();
-    tNext+=20;
-    lvUp+=1;}
-
-    /*현황텍스트*/ingame.state();
-    /*체력바*/ingame.hpBar();
-    /*공격*/ ingame.attack();
-
-  } // end st3
-
-   // STEP4 - result //
-   if(st4){
-      st1= false;st2 = false;st3 = false;playing = false;
-      milRed = 0;milingame = 0;
-      lvUp = 1;
-   } //end st4
-
-  // reset //
-      if(st4 ===false && key=='r' || key=='R'){
-        sound[11].loop();
-      }
-  if(key=='r' || key=='R'){
-      st0 = true;st1= false;st2 = false;st3 = false;st4 = false;playing = false;
-      milRed = 0;milingame = 0;
-      lvUp = 1;
-      spd1 = 2;spd2 = 8;
-      tCount = 20;tNext = 10;
-      ingame = new Get_st3();
+    // STEP 1 - sett(capture) //
+    if(st1){
+      sett.place();
+      goutX+=4;if(goutX>120){goutX=80};
+      /*reset timer*/milSet=millis()-milDf;
+      sCount=sTime-(milSet/1000);
+      // pgBar=map(int(sCount),12,4,0,100);
     }
 
+    // STEP 2 - guide //
+    if(st2&&st3===false){
+      guide.place();
+      milRed=millis();
+    }
 
-  } //END CONTENTS
+    // STEP 3 - ingame //
+    if(st3){
+      //timer
+      fill(255);
+      milingame=millis()-milRed;// timer reset
+      tCount=tNext-int(milingame/1000);time=nf(tCount,2);tRemain=map(time,20,0,-90.1,269.9);level=nf(lvUp,2);
+
+      // 레벨업
+      if(tCount===0){
+      sound[6].play();
+      tNext+=20;
+      lvUp+=1;rSpd+=1;if(rSpd>8){rSpd=8}}
+
+      /*공격*/ ingame.attack();
+      /*데미지*/ ingame.damage();
+      /*현황텍스트*/ingame.state();
+
+    } // end st3
+
+     // STEP4 - result //
+     if(st4){
+       if(st3){result.screenshot();}
+        st1= false;st2=false;st3=false;
+        milRed=0;milingame=milingame;lvUp=1;
+        result.score();
+     } //end st4
+
+    } //END CONTENTS
 } //END DRAW
 
 
 function keyPressed() {
-  if(st0 && key == ' '){
-  st0 = false;
-  sound[11].stop();
-  sound[12].play();
-  noTint();
-  st1 = true;
-  playing = true;
-  milDf = millis();
-  sound[0].play();
+  if(st0&&key==' '){
+  sound[11].stop();sound[12].play();sound[0].play();
+  st0=false;st1=true;sTime=13;
+  milDf=millis();noTint();
   }
-  if(key == " "){
-    wt = 150;
+}
+
+function mousePressed(){
+  if(activeBtn){
+    if(st1){sTime=4.1;activeBtn=false;
+    sound[0].stop();
+    sound[8].play();
+      }
+    if(st2||st4){
+      if(st4===false){sound[11].loop();}
+      sound[1].stop();
+      sound[12].play();
+      st4=false;st3=false;st2=false;st1= false;st0=true;
+      activeBtn=false;
+      milRed=0;milingame=0;
+      lvUp=1;
+      tCount=20;tNext=10;
+      curHP=100;rSpd=2.5;
+      //ingame=new Get_st3();
+    }
   }
 }

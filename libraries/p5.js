@@ -5252,7 +5252,7 @@ exports.sizeOf = sizeOf;
 
     function timedOut() {
       self._timedOut = true
-      self.request.abort()      
+      self.request.abort()
     }
 
     function error(resp, msg, t) {
@@ -9766,7 +9766,7 @@ if (window.console && console.log) {
         console.log.apply(console, arguments);
       } else {
         var newArgs = JSON.parse(JSON.stringify(args));
-        console.log(newArgs);
+        //console.log(newArgs);
       }
     } catch(err) {
       console.log(args);

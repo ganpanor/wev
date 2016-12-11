@@ -39,22 +39,22 @@ body{
   100% {bottom:10%;opacity: 1}
 }
 #section1 {background: rgba(0,0,0,0.5)}
-#section2 {background: rgba(0,0,0,0.8)}
-#section3 {background: rgba(0,0,0,0.9);padding: 40px 0}
-#canvasIn {width:auto%;height: 80%;max-height: 760px;margin: 0 auto}
+#section2,#section3 {background: rgba(0,0,0,0.8)}
+#section4 {background: rgba(0,0,0,0.9);padding: 40px 0}
+#canvasIn {width:auto;height: 70%;margin: 0 auto}
 #canvasIn canvas {width: auto !important;height: 100% !important}
 
 h2 {font-size: 50px;padding-bottom: 20px}
-#section1 #slide0 ul {width: 700px;margin: 0 auto;margin-top: 50px}
-#section1 #slide0 ul li {float: left;width: 30%}
-#section1 #slide0 ul li:nth-child(2){margin: 0 5%}
-#section1 #slide0 ul li img {width: 100%}
-#section1 #slide1 {position: relative;}
-#section1 .click1{position: absolute;top:10px;left:40px;font-size: 30px}
-#section1 .click2{position: absolute;top:70px;left:200px;font-size: 50px}
-#section1 .click3{position: absolute;top:150px;left:230px;font-size: 30px}
-#section1 #slide6 ul {margin: 0 auto;width: 80%;max-width: 1200px;}
-#section1 #slide6 ul li {float: left;width: 30%;}
-#section1 #slide6 ul li:nth-child(2){padding: 0 5%}
-#section1 #slide6 ul li img {width: 100%;padding-bottom: 20px}
+h3 {font-size: 24px;padding-bottom: 20px}
+h3:after{width:30px;height: 2px;background: #fff;display: block;content: "";margin: 5px auto}
+#section1 ul {width: 700px;margin: 0 auto;margin-top: 50px}
+#section1 ul li {float: left;width: 30%}
+#section1 ul li:nth-child(2){margin: 0 5%}
+#section1 ul li img {width: 100%}
+#section2 #slide1 img,#section2 #slide2 img {width: 80%}
+#section2 #slide4 img,#section2 #slide5 img {height: 70%}
+#section2 #slide7 ul {margin: 0 auto;width: 80%;max-width: 1200px;min-width: 1070px;}
+#section2 #slide7 ul li {float: left;width: 30%;}
+#section2 #slide7 ul li:nth-child(2){padding: 0 5%}
+#section2 #slide7 ul li img {width: 100%;padding-bottom: 20px}
 .clearfixafter:after{content:"";display:block;clear:both}
