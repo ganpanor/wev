@@ -191,7 +191,7 @@ function mousePressed(){
       milRed=0;milingame=0;
       lvUp=1;
       tCount=20;tNext=10;
-      curHP=100;rSpd=2.5;
+      curHP=100;rSpd=1;
       //ingame=new Get_st3();
     }
   }
