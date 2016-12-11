@@ -165,8 +165,8 @@ function Get_st3(){
         fill(255);textSize(20);text("화면_안쪽으로_들어오십시오",width/2,height/2);
         noFill();
       }
-      if(this.r>=33){this.r=33}
-      if(this.r>=33&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
+      if(this.r>=34){this.r=34}
+      if(this.r>=34&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
         curHP-=3.5+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
