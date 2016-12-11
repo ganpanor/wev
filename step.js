@@ -113,7 +113,7 @@ function Get_st3(){
     tint(255,this.hpRed);
     image(img[5],width/2,height/2);
     noTint();
-    this.dmgRed-=20;if(this.dmgRed<=0){this.dmgRed=0;wcW=320;wcH=240;wcWs=320;wcHs=240;}
+    this.dmgRed-=10;if(this.dmgRed<=0){this.dmgRed=0;wcW=320;wcH=240;wcWs=320;wcHs=240;}
     fill(255,0,0,this.dmgRed);
     rectMode(CORNER);
     rect(0,0,width,height);
@@ -158,7 +158,7 @@ function Get_st3(){
       if(randomX===0||randomX>width-5){
         /*hp reduce*/curHP-=2;
         //red screen
-        this.outRed-=5;if(this.outRed<10){this.outRed=100;}
+        this.outRed-=1;if(this.outRed<10){this.outRed=100;}
         fill(255,0,0,this.outRed);
         rectMode(CORNER);
         rect(0,0,width,height);
@@ -167,7 +167,7 @@ function Get_st3(){
       }
       if(this.r>=33){this.r=33}
       if(this.r>=33&&this.x+this.r2>=randomX+33&&this.x-this.r2<=randomX+62&&this.y+this.r2>=randomY-85&&this.y-this.r2<=randomY+20){
-        curHP-=4+(lvUp*0.5);
+        curHP-=3.5+(lvUp*0.5);
         this.dmgRed=150;sound[9].play();
       }
     //ingame hp0
