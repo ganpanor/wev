@@ -160,8 +160,8 @@ function draw() {
      if(st4){
        if(st3){result.screenshot();}
         st1= false;st2=false;st3=false;
-        milRed=0;milingame=milingame;lvUp=1;
         result.score();
+        milRed=0;milingame=milingame;lvUp=1;
      } //end st4
 
     } //END CONTENTS
